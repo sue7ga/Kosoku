@@ -8,9 +8,9 @@ use Teng::Schema::Declare;
 base_row_class 'Kosoku::DB::Row';
 
 table {
-    name 'member';
+    name 'kosoku';
     pk 'id';
-    columns qw(id name);
+    columns qw(id f t c s sortBy);
 };
 
 1;

@@ -6,7 +6,7 @@ my $dbpath = File::Spec->catfile($basedir, 'db', 'development.db');
     'DBI' => [
         "dbi:mysql:kosoku", 'suenaga', 'hirokihH5',
         +{
-           mysql_enable_utf8 => 
+           mysql_enable_utf8 => 1
         },
     ],
 };

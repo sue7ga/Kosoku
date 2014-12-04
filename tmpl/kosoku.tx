@@ -1,0 +1,16 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+ 
+   
+</form>
+<form method="post" action="<: uri_for('/kosoku') :>">
+<dl>
+<dt>出発IC</dt>
+<dd><input type="text" name="f" size="80"></dd>
+<dt>到着IC</dt>
+<dd><input type="text" name="t" size="80"></dd>
+<p><input type="submit" value="更新"></p>
+</form>
+
+:}

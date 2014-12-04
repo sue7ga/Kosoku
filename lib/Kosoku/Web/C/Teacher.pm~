@@ -1,0 +1,20 @@
+package Kosoku::Web::C::Kosoku;
+use Data::Dumper;
+
+use Kosoku::Model::Kosoku;
+
+use Data::Dumper;
+
+sub kosoku{
+ my($class,$c) = @_; 
+ return $c->render('kosoku.tx');
+}
+
+sub postkosoku{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters;
+ $c->db->insert_kosoku();
+ return $c->redirect('/kosoku');
+}
+
+1;
