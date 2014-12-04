@@ -10,7 +10,15 @@
 <dd><input type="text" name="f" size="80"></dd>
 <dt>到着IC</dt>
 <dd><input type="text" name="t" size="80"></dd>
+<dt>ルートナンバー</dt>
+<dd><input type="number" name="routenumber" size="80"></dd>
 <p><input type="submit" value="更新"></p>
 </form>
+
+: for $subsections -> $subsection{
+<:$subsection.From:> <br/>~
+<:$subsection.To:> <br/>
+:}
+
 
 :}

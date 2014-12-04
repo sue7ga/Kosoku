@@ -29,25 +29,19 @@ has furl => (
 },
 );
 
-has response => (
- is => 'ro',
- isa => 'HashRef',
- defualt => sub{
-   my $self = shift;
-   my $url = URI->new(BASE_URL);
-    $url->query_form(f => $self->f,t => $self->t,c => $self->c);
-    my $response = $self->furl->get($url);
-    my $res = eval{
-    my $xml = new XML::Simple();
-    $xml->XMLin($response->decoded_content);
-   };
-   if($@){
-    croak("Oh! faild reading XML");
-   }
-   return $res;
-   },   
-);
+sub response{
+ my $self = shift;
+ my $url = URI->new(BASE_URL);
+ $url->query_form(f => $self->f,t => $self->t);
+ my $res = $self->furl->get($url);
+ my $response = eval{
+  my $xml = new XML::Simple();  
+  $xml->XMLin($res->decoded_content);
+ };
+ return $response;
+}
 
+#routenumber and subsections
 sub get_subsection{
  my $self = shift;
  my $subsection = [];
@@ -193,4 +187,3 @@ sub get_all_route_information{
 }
 
 1;
-

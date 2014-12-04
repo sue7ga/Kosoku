@@ -17,9 +17,8 @@ sub kosoku{
  my $latestf = pop @kosoku_f;
  my $latestt  = pop @kosoku_t;
  my $kosoku = Kosoku::Model::Kosoku->new(f => $latestf,t => $latestt);
- print Dumper $kosoku;
- print Dumper $kosoku->response;
- return $c->render('kosoku.tx');
+ my $subsections = $kosoku->get_subsections_by_routenumber(2);
+ return $c->render('kosoku.tx',{subsections => $subsections});
 }
 
 sub postkosoku{
